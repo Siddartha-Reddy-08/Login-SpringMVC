@@ -1,0 +1,5 @@
+package com.webApp.DAO;
+
+public class InsertDAOImpl {
+
+}

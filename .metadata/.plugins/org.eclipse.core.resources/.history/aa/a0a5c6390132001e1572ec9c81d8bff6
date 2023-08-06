@@ -1,0 +1,8 @@
+package com.webApp.DAO;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public interface InsertDAO {
+
+}

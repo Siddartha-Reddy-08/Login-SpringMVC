@@ -1,0 +1,9 @@
+package com.webApp.DAO;
+
+import com.webApp.Controller.RegisterDTO;
+
+public interface RegisterDAO {
+
+	void inserRegisterData(RegisterDTO registerDTO);
+
+}

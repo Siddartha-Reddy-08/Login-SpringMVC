@@ -1,0 +1,11 @@
+package com.webApp.DAO;
+
+import java.util.List;
+
+import com.Application.DTO.UserData;
+
+public interface LoginDAO {
+
+	List<UserData> loadUserData();
+
+}

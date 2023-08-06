@@ -1,0 +1,33 @@
+package com.webApp.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.webApp.DAO.RegisterDAO;
+import com.webApp.DTO.RegisterDTO;
+import com.webApp.DTO.UserData;
+
+
+@RestController
+@CrossOrigin
+public class RegisterController {
+
+	@Autowired
+	RegisterDAO registerdao;
+	
+	@RequestMapping(value = "", method = RequestMethod.POST)
+	public List<UserData> register(@RequestBody RegisterDTO registerDTO) {
+
+		registerdao.inserRegisterData(registerDTO);
+
+		List<UserData> data = registerdao.loadUserData();
+		return data;
+	}
+
+}

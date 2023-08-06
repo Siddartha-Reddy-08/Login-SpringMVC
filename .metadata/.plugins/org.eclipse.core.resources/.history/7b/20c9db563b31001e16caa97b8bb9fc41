@@ -1,0 +1,68 @@
+package com.Application.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.Application.DAO.LoginDAO;
+import com.Application.DTO.InfoDTO;
+import com.Application.DTO.InputData;
+import com.Application.DTO.RegisterDTO;
+import com.Application.DTO.UserData;
+
+@RestController
+@CrossOrigin
+public class LoginController {
+	@Autowired
+	LoginDAO logindao;
+
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public List<UserData> login() {
+		System.out.println("Login");
+		List<UserData> data = logindao.loadUserData();
+		return data;
+	}
+
+	@RequestMapping(value = "register", method = RequestMethod.POST)
+	public List<UserData> register(@RequestBody RegisterDTO registerDTO) {
+
+		logindao.inserRegisterData(registerDTO);
+
+		List<UserData> data = logindao.loadUserData();
+		return data;
+	}
+
+	@RequestMapping(value = "insert", method = RequestMethod.POST)
+	public void insert(@RequestBody InputData inputdata) {
+		System.out.println("insert");
+		if (!inputdata.getName().equals("") && !inputdata.getPosition().equals(""))
+			logindao.insertUserData(inputdata);
+		System.out.println(inputdata.getName());
+	}
+
+	@RequestMapping(value = "display", method = RequestMethod.GET)
+	public List<InfoDTO> display(InfoDTO infodto) {
+		System.out.println("Display");
+		List<InfoDTO> displayData = logindao.loadInfo();
+		for (InfoDTO data : displayData) {
+			System.out.println(data.getSno());
+		}
+		return displayData;
+	}
+
+}
+
+//	List<UserData> data = logindao.loadUserData();
+//	String[] userName = new String[data.size()];
+//	int i = 0;
+//	for (UserData userData : data) {
+//		userName[i] = userData.getUsername();
+//		i++;
+//	}
+
+//

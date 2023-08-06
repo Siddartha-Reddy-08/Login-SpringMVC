@@ -1,0 +1,20 @@
+package com.Application.DAO;
+
+import java.util.List;
+
+import com.Application.DTO.InfoDTO;
+import com.Application.DTO.InputData;
+import com.Application.DTO.RegisterDTO;
+import com.Application.DTO.UserData;
+
+public interface LoginDAO {
+
+	List<UserData> loadUserData();
+
+	void insertUserData(InputData inputData);
+
+	List<InfoDTO> loadInfo();
+
+	void inserRegisterData(RegisterDTO registerDTO);
+
+}

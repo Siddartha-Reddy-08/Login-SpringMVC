@@ -1,0 +1,17 @@
+package com.webApp.DAO;
+
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.webApp.DTO.InfoDTO;
+import com.webApp.DTO.InputData;
+
+@Component
+public interface InsertDAO {
+
+	void insertUserData(InputData inputdata);
+
+	List<InfoDTO> loadInfo();
+
+}

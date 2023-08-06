@@ -1,0 +1,31 @@
+package controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import DTO.InsertDataDTO;
+import DTO.LoginDTO;
+
+@Controller
+public class LoginController {
+
+	@RequestMapping("/login")
+	public String login(@ModelAttribute("user") LoginDTO logindto) {
+		System.out.println("login");
+		return "Login";
+	}
+	
+	@RequestMapping("/insert")
+	public String insert(@ModelAttribute("input") InsertDataDTO insertdata) {
+		System.out.println("insert");
+		return "Insert";
+	}
+	
+	@RequestMapping("/display")
+	public String display() {
+		System.out.println("Display");
+		return "Display";
+	}
+	
+}

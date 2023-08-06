@@ -1,0 +1,15 @@
+package com.webApp.DAO;
+
+import java.util.List;
+
+import com.webApp.DTO.DisplayDTO;
+import com.webApp.DTO.InputData;
+
+
+public interface InsertDAO {
+
+	void insertUserData(InputData inputdata);
+
+	List<DisplayDTO> loadInfo();
+
+}

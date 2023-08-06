@@ -1,0 +1,12 @@
+package com.webApp.DAO;
+
+import org.springframework.stereotype.Component;
+
+import com.webApp.DTO.InputData;
+
+@Component
+public interface InsertDAO {
+
+	void insertUserData(InputData inputdata);
+
+}

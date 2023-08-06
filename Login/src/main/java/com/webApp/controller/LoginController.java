@@ -1,0 +1,27 @@
+package com.webApp.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.webApp.DAO.LoginDAO;
+import com.webApp.DTO.UserData;
+
+@RestController
+@CrossOrigin
+public class LoginController {
+	@Autowired
+	LoginDAO logindao;
+
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public List<UserData> login() {
+		System.out.println("Login");
+		List<UserData> data = logindao.loadUserData();
+		return data;
+	}
+
+}
